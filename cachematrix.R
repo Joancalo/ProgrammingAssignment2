@@ -38,4 +38,29 @@ cacheSolve <- function(x, ...) {
         m
 }
                 
-               
+## For Example:
+## If we have a square matrix called "matrix"
+> matrix <- diag(6, 4)
+> matrix
+     [,1] [,2] [,3] [,4]
+ [1,]    6    0    0    0
+ [2,]    0    6    0    0
+ [3,]    0    0    6    0
+ [4,]    0    0    0    6
+## We can Cache it by using the makeCacheMatrix function  
+> CacheMatrix <- makeCacheMatrix(matrix)
+## We can get the inverted matrix by using the cacheSolve function
+> cacheSolve(CacheMatrix)
+          [,1]      [,2]      [,3]      [,4]
+[1,] 0.1666667 0.0000000 0.0000000 0.0000000
+[2,] 0.0000000 0.1666667 0.0000000 0.0000000
+[3,] 0.0000000 0.0000000 0.1666667 0.0000000
+[4,] 0.0000000 0.0000000 0.0000000 0.1666667
+## And finally we can see if the inverted matrix was stored by using again the cacheSolve function.
+> cacheSolve(CacheMatrix)
+getting cached data
+          [,1]      [,2]      [,3]      [,4]
+[1,] 0.1666667 0.0000000 0.0000000 0.0000000
+[2,] 0.0000000 0.1666667 0.0000000 0.0000000
+[3,] 0.0000000 0.0000000 0.1666667 0.0000000
+[4,] 0.0000000 0.0000000 0.0000000 0.1666667
